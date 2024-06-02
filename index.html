@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   
+    <!-- Sección inicial con los botones -->
+    <div class="initial-section">
+        <div class="row">
+            <p>‎ ‎ ‎ </p>
+            <p>‎ ‎ ‎ </p>
+         
+        </div>
+        <div class="row">
+            <p>‎ ‎ ‎ </p>
+            <p>‎ ‎ ‎ </p>
+         
+        </div>
+    
+        <div class="rowNombre">
+          
+            <img src="anillo.png"  width="150">
+          </div>
+        
+        <div class="rowNombre">
+          <p>SpeakEasy Ring</p>
+        </div>
+
+
+
+        <div class="barrita">
+            <p></p>
+            
+            <img src="menu.png" width="40" onclick="openMenu()">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        
+               <img src="lupa.png" width="50">
+               <p></p>
+           
+        </div>
+        <div class="row">
+            <div class="overlay" id="overlay">
+            
+            <!-- Loading spinner -->
+<div class="spinner" id="spinner"></div>
+<!-- Checkmark icon -->
+<svg class="checkmark" id="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+</svg>
+</div>
+</div>
+</div>
+</div>
+    
+        <div id="myMenu" class="menu">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+            <a href="#">Enlace 1</a>
+            <a href="#">Enlace 2</a>
+            <a href="#">Enlace 3</a>
+            <a href="#">Enlace 4</a>
+        </div>
+
+        
+        <div class="row">
+            <p>‎ ‎ ‎ </p>
+            <p>‎ ‎ ‎ </p>
+            <p>‎ ‎ ‎ </p>
+        </div>
+    
+       
+            <div class="rowgrey">
+                <div class="row">
+                <button class="button1" onclick="startLoading()">Sincronizar</button>
+            </div>
+        </div>
+
+
+          
+            
+          
+
+            
+    <div class ="rowgrey">
+        <div class="row">
+        <button class="button1" onclick="scrollToSection()">Modos</button>
+        </div>
+    </div>
+
+ 
+
+
+    <!-- Espacio para la segunda sección -->
+    <div class="spacer"></div>
+
+
+    <div class="container">
+        <div class="row">
+            <button class="button">Elefante</button>
+            <button class="button">Gato</button>
+        </div>
+        <div class="row">
+            <button class="button">Perro</button>
+            <button class="button">Extraterestre</button>
+        </div>
+        <div class="row">
+            <button class="button">Ingles</button>
+            <button class="button">Japones</button>
+        </div>
+    </div>
+
+    <!-- Script para hacer scroll hacia la segunda sección -->
+    <script>
+       function scrollToSection() {
+            window.scrollTo({
+                top: document.querySelector('.spacer').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        function startLoading() {
+            document.getElementById("overlay").style.display = "flex"; // Muestra el overlay
+            document.getElementById("spinner").style.display = "block";
+            setTimeout(showCheckmark, 2000); // Simulating a 2-second loading time
+        }
+
+        function showCheckmark() {
+            document.getElementById("spinner").style.display = "none";
+            document.getElementById("checkmark").style.display = "block";
+            setTimeout(hideCheckmark, 2000); // Hides checkmark after 2 seconds
+        }
+
+        function hideCheckmark() {
+            document.getElementById("checkmark").style.display = "none";
+            document.getElementById("overlay").style.display = "none"; // Oculta el overlay después de ocultar el checkmark
+        }
+
+
+
+function openMenu() {
+            document.getElementById("myMenu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("myMenu").style.width = "0";
+        }
+
+
+
+    </script>
+</body>
+
+</html>
