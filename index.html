@@ -9,34 +9,24 @@
 </head>
 
 <body>
-   
     <!-- Sección inicial con los botones -->
     <div class="initial-section">
         <div class="row">
             <p>‎ ‎ ‎ </p>
             <p>‎ ‎ ‎ </p>
-         
         </div>
         <div class="row">
             <p>‎ ‎ ‎ </p>
             <p>‎ ‎ ‎ </p>
-         
         </div>
-    
         <div class="rowNombre">
-          
-            <img src="anillo.png"  width="150">
-          </div>
-        
-        <div class="rowNombre">
-          <p>SpeakEasy Ring</p>
+            <img src="anillo.png" width="150">
         </div>
-
-
-
+        <div class="rowNombre">
+            <p>SpeakEasy Ring</p>
+        </div>
         <div class="barrita">
             <p></p>
-            
             <img src="menu.png" width="40" onclick="openMenu()">
             <p></p>
             <p></p>
@@ -45,85 +35,71 @@
             <p></p>
             <p></p>
             <p></p>
-        
-               <img src="lupa.png" width="50">
-               <p></p>
-           
+            <img src="lupa.png" width="50">
+            <p></p>
         </div>
         <div class="row">
             <div class="overlay" id="overlay">
-            
-            <!-- Loading spinner -->
-<div class="spinner" id="spinner"></div>
-<!-- Checkmark icon -->
-<svg class="checkmark" id="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-</svg>
-</div>
-</div>
-</div>
-</div>
-    
-        <div id="myMenu" class="menu">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-            <a href="#">Enlace 1</a>
-            <a href="#">Enlace 2</a>
-            <a href="#">Enlace 3</a>
-            <a href="#">Enlace 4</a>
-        </div>
-
-        
-        <div class="row">
-            <p>‎ ‎ ‎ </p>
-            <p>‎ ‎ ‎ </p>
-            <p>‎ ‎ ‎ </p>
-        </div>
-    
-       
-            <div class="rowgrey">
-                <div class="row">
-                <button class="button1" onclick="startLoading()">Sincronizar</button>
+                <!-- Loading spinner -->
+                <div class="spinner" id="spinner"></div>
+                <!-- Checkmark icon -->
+                <svg class="checkmark" id="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
             </div>
-        </div>
-
-
-          
-            
-          
-
-            
-    <div class ="rowgrey">
-        <div class="row">
-        <button class="button1" onclick="scrollToSection()">Modos</button>
         </div>
     </div>
 
- 
+    <div id="myMenu" class="menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+        <a href="#" class="menu-link">Enlace 1</a>
+        <a href="#" class="menu-link">Enlace 2</a>
+        <a href="#" class="menu-link">Enlace 3</a>
+        <a href="#" class="menu-link">Enlace 4</a>
+    </div>
 
+    <div class="row">
+        <p>‎ ‎ ‎ </p>
+        <p>‎ ‎ ‎ </p>
+        <p>‎ ‎ ‎ </p>
+    </div>
+
+    <div class="rowgrey">
+        <div class="row">
+            <button class="button1" onclick="startLoading()">Sincronizar</button>
+        </div>
+    </div>
+
+    <div class="rowgrey">
+        <div class="row">
+            <button class="button1" onclick="scrollToSection()">Modos</button>
+        </div>
+    </div>
 
     <!-- Espacio para la segunda sección -->
     <div class="spacer"></div>
 
-
     <div class="container">
         <div class="row">
-            <button class="button">Elefante</button>
-            <button class="button">Gato</button>
+            <button class="button"  id="elephant-button">Elefante</button>
+            <audio id="elephant-sound" src="elefante.mp3" preload="auto"></audio>
+            <button class="button" id="cat-button">Gato</button>
+            <audio id="cat-sound" src="gato.mp3" preload="auto"></audio>
         </div>
         <div class="row">
-            <button class="button">Perro</button>
-            <button class="button">Extraterestre</button>
+            <button class="button"  id="dog-button">Perro</button>
+            <audio id="dog-sound" src="perro.mp3" preload="auto"></audio>
+            
+            <button class="button" id="marciano-button">Extraterestre</button>
+            <audio id="marciano-sound" src="marciano.mp3" preload="auto"></audio>
         </div>
-        <div class="row">
-            <button class="button">Ingles</button>
-            <button class="button">Japones</button>
-        </div>
+      
     </div>
 
     <!-- Script para hacer scroll hacia la segunda sección -->
     <script>
-       function scrollToSection() {
+        function scrollToSection() {
             window.scrollTo({
                 top: document.querySelector('.spacer').offsetTop,
                 behavior: 'smooth'
@@ -131,31 +107,84 @@
         }
 
         function startLoading() {
-            document.getElementById("overlay").style.display = "flex"; // Muestra el overlay
+            document.getElementById("overlay").style.display = "flex";
             document.getElementById("spinner").style.display = "block";
-            setTimeout(showCheckmark, 2000); // Simulating a 2-second loading time
+            setTimeout(showCheckmark, 2000);
         }
 
         function showCheckmark() {
             document.getElementById("spinner").style.display = "none";
             document.getElementById("checkmark").style.display = "block";
-            setTimeout(hideCheckmark, 2000); // Hides checkmark after 2 seconds
+            setTimeout(hideCheckmark, 2000);
         }
 
         function hideCheckmark() {
             document.getElementById("checkmark").style.display = "none";
-            document.getElementById("overlay").style.display = "none"; // Oculta el overlay después de ocultar el checkmark
+            document.getElementById("overlay").style.display = "none";
         }
 
-
-
-function openMenu() {
+        function openMenu() {
             document.getElementById("myMenu").style.width = "250px";
+            var links = document.getElementsByClassName("menu-link");
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.visibility = "visible";
+            }
         }
 
         function closeMenu() {
             document.getElementById("myMenu").style.width = "0";
+            var links = document.getElementsByClassName("menu-link");
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.visibility = "hidden";
+            }
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            closeMenu();
+        });
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const elephantButton = document.getElementById("elephant-button");
+    const elephantSound = document.getElementById("elephant-sound");
+
+    elephantButton.addEventListener("click", function() {
+        elephantSound.play();
+    });
+    
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const catButton = document.getElementById("cat-button");
+    const catSound = document.getElementById("cat-sound");
+
+    catButton.addEventListener("click", function() {
+       catSound.play();
+    });
+    
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const dogButton = document.getElementById("dog-button");
+    const dogSound = document.getElementById("dog-sound");
+
+    dogButton.addEventListener("click", function() {
+       dogSound.play();
+    });
+    
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const marcianoButton = document.getElementById("marciano-button");
+    const marcianoSound = document.getElementById("marciano-sound");
+
+    marcianoButton.addEventListener("click", function() {
+      marcianoSound.play();
+    });
+    
+});
+
 
 
 

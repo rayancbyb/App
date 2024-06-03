@@ -11,7 +11,6 @@ body {
     color: #fff;
     padding: 10px 0;
     text-align: center;
-
 }
 
 .app-name {
@@ -23,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 60px); /* Restando el alto de la barra de encabezado */
+    padding: 20px;
 }
 
 .rowgrey {
@@ -31,46 +30,37 @@ body {
     justify-content: center;
     background-color: #171616;
     border-radius: 10px;
-    padding: 5%; /* Espacio alrededor del contenido dentro del div */
-    margin: 5%; /* Espacio entre los divs */
-    width: 40%; /* Ancho del div */
-    float: left; /* Para que los divs se alineen en línea */
-    box-sizing: border-box
+    padding: 5%;
+    margin: 5% auto;
+    width: 90%;
+    box-sizing: border-box;
 }
+
 @media (max-width: 768px) {
     .rowgrey {
-      width: 90%; /* Reducir el ancho en pantallas pequeñas */
-      margin: 5% auto; /* Centrar los divs en pantallas pequeñas */
-      float: none; /* Cancelar la alineación en línea */
+        width: 90%;
+        margin: 5% auto;
     }
-  }
-
-  @media (max-width: 800px) and (orientation: portrait) {
-    .container {
-      padding: 10px;
-    }
-    
-    .header, .footer {
-      text-align: center;
-    }
-  
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+}
 
 .row {
     display: flex;
     justify-content: center;
-
+    
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
 .rowNombre {
     display: flex;
     justify-content: center;
-    font-weight: bold; /* Hace el texto en negrita */
-    font-size: 35px; 
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .button {
@@ -90,8 +80,6 @@ body {
     background-color: #0056b3;
 }
 
-
-
 .button1 {
     width: 170px;
     height: 50px;
@@ -109,10 +97,6 @@ body {
     background-color: #0056b3;
 }
 
-
-
-
-/* Spinner */
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #14a801;
@@ -120,7 +104,7 @@ body {
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
 @keyframes spin {
@@ -128,12 +112,11 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Checkmark */
 .checkmark {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    display: none; /* Initially hidden */
+    display: none;
     stroke-width: 2;
     stroke: #14a801;
     fill: none;
@@ -169,29 +152,20 @@ body {
         opacity: 1;
     }
 }
+
 .overlay {
     position: fixed;
-    top: 20; /* Coloca el overlay en la parte superior */
+    top: 0;
     left: 0;
     width: 100%;
-    bottom: auto; /* Asegura que el overlay no se extienda hacia abajo */
-    background: rgba(255, 255, 255, 0); /* Fondo semitransparente */
+    height: 100%;
+    background: rgba(1, 1, 1, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Asegura que se superponga a otros elementos */
-    display: none; /* Inicialmente oculto */
+    z-index: 9999;
+    display: none;
 }
-
-
-
-
-
-
-
-
-
-
 
 .barrita {
     display: flex;
@@ -212,20 +186,18 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-radius: 15px;
-    
+    z-index: 10000;
 }
+
 .menu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: white;
+    color: #fff;
     display: block;
     transition: 0.3s;
 }
-.menu a:hover {
-    background-color: #171616;
-}
+
 .menu .closebtn {
     position: absolute;
     top: 0;
@@ -233,7 +205,6 @@ body {
     font-size: 36px;
 }
 
-
-
-
-
+.menu-link {
+    visibility: hidden;
+}
